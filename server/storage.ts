@@ -21,7 +21,8 @@ export class MemStorage implements IStorage {
   async createProcessedImage(insertImage: InsertProcessedImage): Promise<ProcessedImage> {
     const id = randomUUID();
     const image: ProcessedImage = { 
-      ...insertImage, 
+      ...insertImage,
+      intensity: insertImage.intensity ?? 70,
       id, 
       createdAt: new Date() 
     };
